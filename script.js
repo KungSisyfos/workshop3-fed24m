@@ -67,23 +67,26 @@ const pets = [
 ];
 
 
-let html = ``
+// let html = ``;
 
-const unorderedList = document.querySelector("ul");
+// const petsListEl = document.querySelector("ul");
+
+// pets.forEach((pet) => {
+
+	
+// 	html += `<li>${pet.name} is a ${pet.species.toLowerCase()} of ${pet.age} year(s) old. Their favourite hobby is ${pet.hobbies.join(', ').toLowerCase()}</li>`;
+// 	petsListEl.innerHTML = html; 
 
 
+// });
+
+const petsListEl = document.querySelector("ul");
 
 pets.forEach((pet) => {
-	html += `<li>${pet.name} is a ${pet.species} of ${pet.age} year(s) old. <span>Their owner is ${pet.owner.name}</span> Their favourite hobby is ${pet.hobbies.join(', ').toLowerCase()}</li>`;
-	unorderedList.innerHTML = html;
+	petsListEl.innerHTML += `<li>${pet.name} is a ${pet.species.toLowerCase()} of ${pet.age} year(s) old. Their owner's name is ${pet.owner ? pet.owner.name : 'missing'} Their favourite hobby is ${pet.hobbies.join(', ').toLowerCase()}</li>`;
 
-	const li = unorderedList.lastElementChild; // Get the last added list item
-	const span = li.querySelector('span'); // Select the span within the list item
 
-	if(!pet.owner.name) {
-		span.style.display = "none";
-	} else {
-		span.style.display= "";
+
 	}
+);
 
-});
